@@ -7,4 +7,11 @@ async function pingRequest(req, res) {
   });
 }
 
-module.exports = { pingRequest };
+async function createSubmission(req, res) {
+  const response = await this.submissionService.addSubmission(req.body);
+}
+
+module.exports = {
+  pingRequest,
+  createSubmission,
+};
