@@ -4,6 +4,7 @@ const cors = require("@fastify/cors");
 
 const servicePlugin = require("./services/servicePlugin");
 const todoRoutes = require("./routes/todoRoutes");
+const repositoryPlugin = require("./repositories/repositoryPlugin");
 /**
  *
  * @param {Fastify object} fastify
@@ -11,6 +12,7 @@ const todoRoutes = require("./routes/todoRoutes");
  */
 async function app(fastify, options) {
   fastify.register(cors);
+  fastify.register(repositoryPlugin);
   fastify.register(servicePlugin);
 
   fastify.register(todoRoutes, { prefix: "/todos" });
